@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 
 export default function RaftInput() {
     return (
-        <div className="flex flex-col  w-4/6  items-center justify-center" >
+        <div className="flex flex-col  w-4/6  items-center mt-10 justify-center" >
             <h1>
                 Enter Raft Info:
             </h1>

@@ -8,9 +8,9 @@ export default async function Home() {
   const TheListOnTheWater = await currentRaftsOnWater();
   const TheListOffTheWater = await currentRaftsOffWater();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center  bg-blue-600 gap-6 text-2xl ">
+    <main className="flex min-h-screen flex-col items-center bg-blue-600 gap-6 text-2xl ">
       <RaftInput />
-      <OnTheWaterList  WhiteboardOnWater={TheListOnTheWater} />
+      <OnTheWaterList WhiteboardOnWater={TheListOnTheWater} />
       {/* <OffTheWater WhiteboardOffWater={TheListOffTheWater} /> */}
     </main>
   );
