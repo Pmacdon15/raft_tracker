@@ -3,7 +3,6 @@ import { Input } from "./input";
 import { Checkbox } from "./checkbox";
 import { Button } from "./button";
 import { RaftDeparted } from "../../actions/actions";
-// import { redirect } from "next/navigation";
 import { useFormState,useFormStatus } from 'react-dom'
 
 const initialState = {

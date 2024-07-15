@@ -1,3 +1,4 @@
+'use client'
 import { RaftArrived }  from "@/actions/actions";
 import { Button } from "./button";
 import { redirect } from "next/navigation";
