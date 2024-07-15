@@ -19,9 +19,8 @@ export default async function OnTheWaterList({ WhiteboardOnWater }: { Whiteboard
                         <p>{item.unit}</p>      
                         <p>{item.departure_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>                                  
                         <form action={async() =>
-                        {
-                            'use server';                       
-                            RaftArrived(item.unit);
+                        {                    
+                            await RaftArrived(item.unit);
                             redirect('/');
                         }}>
                             <Button>Click on Arrival</Button>
