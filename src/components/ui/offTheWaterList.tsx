@@ -13,7 +13,7 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
                             <p>{item.raft_type}</p>
                             <p>{item.unit}</p>
                             <p>{item.departure_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-                            <p>{item.arrival_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                            <p>{item.arrival_date.toString([], { hour: '2-digit', minute: '2-digit' })}</p>
                         </div>
                     ))
                 ) : (

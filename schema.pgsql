@@ -12,5 +12,5 @@ Create Table RTRaftList(
 select * from RTRaftList;
 drop table RTRaftList;
 
-  SELECT * FROM RTRaftList 
-      WHERE departure_date >= CURRENT_DATE AND arrival_date IS NULL
+SELECT * FROM RTRaftList 
+WHERE departure_date >= CURRENT_DATE AND arrival_date IS NULL
