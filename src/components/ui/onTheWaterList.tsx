@@ -4,26 +4,30 @@ import { redirect } from "next/navigation";
 
 export default async function OnTheWaterList({ WhiteboardOnWater }: { WhiteboardOnWater: any }) {    
     return (
-        <div className="flex flex-col w-full items-center  gap-8">
-            <h1>
+        <div className="flex flex-col items-center  align-middle w-full gap-8  text-white">
+            <h1 className="decoration-solid underline">
                 On The Water List:
             </h1>
-            {WhiteboardOnWater.map((item: any) => (
-                <div key={item.raft_res_name} className="flex flex-row w-5/6 md:w-3/6 items-center justify-between p-1 " >
-                    <p>{item.raft_res_name}</p>
-                    <p>{item.raft_type}</p>  
-                    <p>{item.unit}</p>                                        
-                    <form action={async() =>
-                    {
-                        'use server';                       
-                        RaftArrived(item.unit);
-                        redirect('/');
-                    }}>
-                        <Button>Click on Arrival</Button>
-                    </form>
-                </div>
-            ))}
-
+            {WhiteboardOnWater.length === 0 ? (
+                <p>No Rafts on the water</p>
+            ) : (
+                WhiteboardOnWater.map((item: any) => (
+                    <div key={item.raft_res_name} className="flex flex-row flex-wrap w-full md:w-5/6 items-center justify-between   p-1 " >
+                        <p>{item.raft_res_name}</p>
+                        <p>{item.raft_type}</p>  
+                        <p>{item.unit}</p>      
+                        <p>{item.departure_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>                                  
+                        <form action={async() =>
+                        {
+                            'use server';                       
+                            RaftArrived(item.unit);
+                            redirect('/');
+                        }}>
+                            <Button>Click on Arrival</Button>
+                        </form>
+                    </div>
+                ))
+            )}
         </div>
     );
 };

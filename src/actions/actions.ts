@@ -1,8 +1,12 @@
+
+'use server';
 import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
-export async function RaftDeparted(formData: FormData) {
-  'use server';
+
+export async function RaftDeparted( prevState: any,formData: FormData) {
+  
   const reservationName = formData.get('resName');
   const smRaft = formData.get('smRaft');
   const mdRaft = formData.get('mdRaft');
@@ -13,65 +17,67 @@ export async function RaftDeparted(formData: FormData) {
   const unit = formData.get('unit');
   // Check if the reservation name is empty
   if (!reservationName) {
-    return false;
+    return {message:"Please enter a reservation name"};
   }
   // Check if the at least one checkbox is checked
   if (!smRaft && !mdRaft && !lgRaft && !skKayak && !dkKayak && !bigBlue) {
-    return false;
+    return {message: 'Please select a raft type'};
   }
   // Make sure only one check box is checked
   if (smRaft && (mdRaft || lgRaft || skKayak || dkKayak || bigBlue)) {
-    return false;
-
+    return {message: 'Please select only one raft type'};
   }
   if (mdRaft && (smRaft || lgRaft || skKayak || dkKayak || bigBlue)) {
-    return false;
+    return {message: 'Please select only one raft type'};
   }
   if (lgRaft && (smRaft || mdRaft || skKayak || dkKayak || bigBlue)) {
-    return false;
+    return {message: 'Please select only one raft type'};
   }
   if (skKayak && (smRaft || mdRaft || lgRaft || dkKayak || bigBlue)) {
-    return false;
+    return {message: 'Please select only one raft type'};
   }
   if (dkKayak && (smRaft || mdRaft || lgRaft || skKayak || bigBlue)) {
-    return false;
+    return {message: 'Please select only one raft type'};
   }
   if (bigBlue && (smRaft || mdRaft || lgRaft || skKayak || dkKayak)) {
-    return false;
+    return {message: 'Please select only one raft type'};
   }
   // Assign raftType based on check boxes
   let raftType = '';
   if (smRaft) {
-    raftType = 'smRaft';
+    raftType = 'sm Raft';
   } else if (mdRaft) {
-    raftType = 'mdRaft';
+    raftType = 'md Raft';
   } else if (lgRaft) {
-    raftType = 'lgRaft';
+    raftType = 'lg Raft';
   } else if (skKayak) {
-    raftType = 'skKayak';
+    raftType = 'sk Kayak';
   } else if (dkKayak) {
-    raftType = 'dkKayak';
+    raftType = 'dk Kayak';
   } else {
-    raftType = 'bigBlue';
+    raftType = 'big Blue';
   }
   // Make sure the unit is not empty
   if (!unit) {
-    return false;
+    return {message: 'Please enter a unit number'};
   }
 
-  console.log(reservationName, smRaft, mdRaft, lgRaft, skKayak, dkKayak, bigBlue, unit, raftType)
+  // console.log(reservationName, smRaft, mdRaft, lgRaft, skKayak, dkKayak, bigBlue, unit, raftType)
   try {
     const addDeparture = await sql`
-      INSERT INTO RTRaftList (raft_res_name, raft_type,departure_date, unit ) VALUES (${reservationName.toString()},${raftType}, CURRENT_TIMESTAMP, ${unit.toString()});
+      INSERT INTO RTRaftList (raft_res_name, raft_type, departure_date, unit ) VALUES (${reservationName.toString()},${raftType}, CURRENT_TIMESTAMP, ${unit.toString()})RETURNING *;
     `;
     if (!addDeparture) {
-      return false;
+      return {message: 'Error adding raft to the list'};
     }
   } catch (error) {
     console.error((error as Error).message);
-    return false;
+    return {message: 'Error adding raft to the list'};
   }
-  return true;
+  revalidatePath("/");
+  redirect('/');
+  // return {message: 'Raft added to the list'};
+  
 }
 // get All rafts that departed after 1201am today
 export async function currentRaftsOnWater() {
