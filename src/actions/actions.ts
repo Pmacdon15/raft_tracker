@@ -65,7 +65,7 @@ export async function RaftDeparted( prevState: any,formData: FormData) {
   // console.log(reservationName, smRaft, mdRaft, lgRaft, skKayak, dkKayak, bigBlue, unit, raftType)
   try {
     const addDeparture = await sql`
-      INSERT INTO RTRaftList (raft_res_name, raft_type, departure_date, unit ) VALUES (${reservationName.toString()},${raftType}, CURRENT_TIMESTAMP, ${unit.toString()})RETURNING *;
+      INSERT INTO RTRaftList (raft_res_name, raft_type, departure_date, unit ) VALUES (${reservationName.toString()},${raftType}, CURRENT_TIMESTAMP, ${unit.toString()});
     `;
     if (!addDeparture) {
       return {message: 'Error adding raft to the list'};

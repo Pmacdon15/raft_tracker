@@ -9,7 +9,7 @@ Create Table RTRaftList(
 
 
 
-select * from RTRaftList;
+
 drop table RTRaftList;
 
 SELECT * FROM RTRaftList 
