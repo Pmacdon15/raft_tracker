@@ -110,7 +110,7 @@ export async function RaftArrived(formData: FormData) {
         throw new Error('Error adding arrival time');
       }    
     } catch (error) {
-      console.error((error as Error).message);
+      // console.error((error as Error).message);
       return {message: 'Error adding arrival time'};
     }
     revalidatePath("/");
@@ -131,7 +131,7 @@ export async function currentRaftsOffWater() {
     }
     result = raftList.rows;
   } catch (error) {
-    console.error((error as Error).message);
+    // console.error((error as Error).message);
     return []; // Return an empty array on error
   }
   revalidatePath("/");

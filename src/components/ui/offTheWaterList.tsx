@@ -1,5 +1,16 @@
 'use client'
+
+
 export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater: any }) {
+    function formatTime(time: Date): string {
+        const hours = time.getHours();
+        const minutes = time.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12;
+        const formattedMinutes = minutes.toString().padStart(2, '0');
+        return `${formattedHours}:${formattedMinutes} ${ampm}`;
+    }
+
     return (
         <div className="flex flex-col items-center align-middle w-full gap-8 text-white">
             <h1 className="decoration-solid underline">Off The Water List:</h1>
@@ -9,8 +20,8 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
                         <p>{item.raft_res_name}</p>
                         <p>{item.raft_type}</p>
                         <p>{item.unit}</p>
-                        <p>{item.departure_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
-                        <p>{item.arrival_date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                        <p>{formatTime(new Date(item.departure_date))}</p>
+                        <p>{formatTime(new Date(item.arrival_date))}</p>
                     </div>
                 ))
             ) : (
