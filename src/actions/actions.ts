@@ -43,17 +43,17 @@ export async function RaftDeparted( prevState: any,formData: FormData) {
   // Assign raftType based on check boxes
   let raftType = '';
   if (smRaft) {
-    raftType = 'sm Raft';
+    raftType = 'Sm Raft';
   } else if (mdRaft) {
-    raftType = 'md Raft';
+    raftType = 'Md Raft';
   } else if (lgRaft) {
-    raftType = 'lg Raft';
+    raftType = 'Lg Raft';
   } else if (skKayak) {
-    raftType = 'sk Kayak';
+    raftType = 'Sk Kayak';
   } else if (dkKayak) {
-    raftType = 'dk Kayak';
+    raftType = 'Dk Kayak';
   } else {
-    raftType = 'big Blue';
+    raftType = 'Big Blue';
   }
   // Make sure the unit is not empty
   if (!unit) {
