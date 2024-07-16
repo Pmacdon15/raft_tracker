@@ -12,11 +12,11 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
     }
 
     return (
-        <div className="flex flex-col flex-wrap items-center bg-[#288FF2] align-middle w-full gap-8 shadow-lg rounded  text-[#F3F9FE]">
+        <div className="flex flex-col flex-wrap items-center bg-[#288FF2] align-middle w-full gap-8 shadow-lg rounded p-1 text-[#F3F9FE]">
             <h1 className="decoration-solid underline">Off The Water List:</h1>
             {WhiteboardOffWater.length > 0 ? (
                 WhiteboardOffWater.map((item: any) => (
-                    <div key={item.raft_res_name} className="flex flex-row  w-full md:w-5/6 items-center justify-between ">
+                    <div key={item.raft_res_name} className="flex flex-row  w-full md:w-5/6 items-center justify-between p-1 gap-1">
                         <p className=" w-full md:w-6/12 text-left">{item.raft_res_name}</p>
                         <p className="w-full md:w-1/12 text-center">{item.raft_type}</p>
                         <p className="w-full md:w-1/12 text-center">{item.unit}</p>
