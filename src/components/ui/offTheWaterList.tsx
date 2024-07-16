@@ -21,7 +21,6 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
                         <p className="w-full md:w-1/12 text-center">{item.raft_type}</p>
                         <p className="w-full md:w-1/12 text-center">{item.unit}</p>
                         <p className="w-full md:w-1/12 text-center">{formatTime(new Date(item.departure_date))}</p>
-                        <p className="w-full md:w-1/12 text-center">{formatTime(new Date(item.departure_date))}</p>
                         <p className="w-full md:w-1/12 text-center">{formatTime(new Date(item.arrival_date))}</p>
                     </div>
                 ))
