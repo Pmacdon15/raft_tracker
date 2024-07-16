@@ -16,7 +16,7 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
             <h1 className="decoration-solid underline">Off The Water List:</h1>
             {WhiteboardOffWater.length > 0 ? (
                 WhiteboardOffWater.map((item: any) => (
-                    <div key={item.raft_res_name} className="flex flex-row flex-wrap w-full md:w-5/6 items-center justify-between p-1 gap-1">
+                    <div key={item.raft_res_name} className="flex flex-row flex-wrap w-full md:w-5/6 items-center justify-between p-1 gap-3">
                         <p>{item.raft_res_name}</p>
                         <p>{item.raft_type}</p>
                         <p>{item.unit}</p>
