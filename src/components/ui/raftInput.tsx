@@ -29,7 +29,7 @@ export default function RaftInput() {
                 <div className="flex flex-wrap justify-center items-center text-[#F3F9FE] gap-3">
                   <p>Sm <Checkbox id="smRaft" name="smRaft" /></p>
                     <p>Md <Checkbox id="mdRaft" name="mdRaft" /></p>
-                    <p>Lg< Checkbox id="lgRaft" name="lgRaft" /></p>
+                    <p>Lg <Checkbox id="lgRaft" name="lgRaft" /></p>
                     <p>Sk <Checkbox id="sk" name="skKayak" /></p>
                     <p>Dk <Checkbox id="dk" name="dkKayak" /></p>
                     <p>Bb <Checkbox id="bb" name="bigBlue" /></p>
