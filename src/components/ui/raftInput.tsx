@@ -27,12 +27,12 @@ export default function RaftInput() {
             }}className="flex flex-row flex-wrap w-5/6 items-center gap-2 " >
                 <Input placeholder="Reservation name" id="resName" name="resName" />
                 <div className="flex flex-wrap justify-center items-center text-[#F3F9FE] gap-3">
-                    Sm<Checkbox id="smRaft" name="smRaft" />
-                    Md<Checkbox id="mdRaft" name="mdRaft" />
-                    Lg<Checkbox id="lgRaft" name="lgRaft" />
-                    Sk<Checkbox id="sk" name="skKayak" />
-                    Dk<Checkbox id="dk" name="dkKayak" />
-                    Bb<Checkbox id="bb" name="bigBlue" />
+                  <p>Sm <Checkbox id="smRaft" name="smRaft" /></p>
+                    <p>Md <Checkbox id="mdRaft" name="mdRaft" /></p>
+                    <p>Lg< Checkbox id="lgRaft" name="lgRaft" /></p>
+                    <p>Sk <Checkbox id="sk" name="skKayak" /></p>
+                    <p>Dk <Checkbox id="dk" name="dkKayak" /></p>
+                    <p>Bb <Checkbox id="bb" name="bigBlue" /></p>
                 </div>
                 <p className="text-[#F3F9FE]">Unit Number:</p> <Input placeholder="Unit number" id="unit" name="unit" />
                 <Button disabled={pending}>Departed</Button>
