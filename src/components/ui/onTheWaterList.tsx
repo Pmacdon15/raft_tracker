@@ -22,11 +22,11 @@ export default function OnTheWaterList({ WhiteboardOnWater }: { WhiteboardOnWate
                 <p>No Rafts on the water.</p>
             ) : (
                 WhiteboardOnWater.map((item: any) => (
-                    <div key={item.raft_res_name} className="flex flex-row flex-wrap w-full md:w-5/6 items-center justify-between p-1">
-                        <p className="flex-1">{item.raft_res_name}</p>
-                        <p className="flex-1">{item.raft_type}</p>
-                        <p className="flex-1">{item.unit}</p>
-                        <p className="flex-1">{formatTime(new Date(item.departure_date))}</p>
+                    <div key={item.raft_res_name} className="flex flex-row flex-wrap w-full md:w-5/6 items-center justify-between p-2">
+                        <p className="flex-2">{item.raft_res_name}</p>
+                        <p className="flex-2">{item.raft_type}</p>
+                        <p className="flex-2">{item.unit}</p>
+                        <p className="flex-2">{formatTime(new Date(item.departure_date))}</p>
                         <form action={RaftArrived}>
                             <input type="hidden" name="raft_res_name" value={item.raft_res_name} />
                             <Button>Click on Arrival</Button>
