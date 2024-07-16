@@ -14,8 +14,8 @@ export default function RaftInput() {
     const { pending } = useFormStatus();
     const formRef = useRef(null);
     return (
-        <div className="flex flex-col  w-4/6  items-center mt-10 justify-center " >
-            <h1 className=" text-white">
+        <div className="flex flex-col w-full  md:w-4/6 p-5 items-center mt-4 justify-center shadow-lg rounded bg-[#288FF2]" >
+            <h1 className=" text-[#F3F9FE]">
                 Enter Raft Info:
             </h1>
             <p>{state?.message}</p>
@@ -26,7 +26,7 @@ export default function RaftInput() {
                   };
             }}className="flex flex-row flex-wrap w-5/6 items-center gap-2 " >
                 <Input placeholder="Reservation name" id="resName" name="resName" />
-                <div className="flex flex-wrap justify-center items-center text-white  gap-3">
+                <div className="flex flex-wrap justify-center items-center text-[#F3F9FE] gap-3">
                     Sm<Checkbox id="smRaft" name="smRaft" />
                     Md<Checkbox id="mdRaft" name="mdRaft" />
                     Lg<Checkbox id="lgRaft" name="lgRaft" />
@@ -34,7 +34,7 @@ export default function RaftInput() {
                     Dk<Checkbox id="dk" name="dkKayak" />
                     Bb<Checkbox id="bb" name="bigBlue" />
                 </div>
-                <p className="text-white">Unit Number:</p> <Input placeholder="Unit number" id="unit" name="unit" />
+                <p className="text-[#F3F9FE]">Unit Number:</p> <Input placeholder="Unit number" id="unit" name="unit" />
                 <Button disabled={pending}>Departed</Button>
             </form>
         </div>

@@ -14,12 +14,12 @@ function formatTime(time: Date): string {
 
 export default function OnTheWaterList({ WhiteboardOnWater }: { WhiteboardOnWater: any }) {
     return (
-        <div className="flex flex-col items-center  align-middle w-full gap-8  text-white">
+        <div className="flex flex-col items-center bg-[#288FF2] align-middle w-full gap-8 shadow-lg rounded text-[#F3F9FE]">
             <h1 className="decoration-solid underline">
                 On The Water List:
             </h1>
             {WhiteboardOnWater.length === 0 ? (
-                <p>No Rafts on the water</p>
+                <p>No Rafts on the water.</p>
             ) : (
                 WhiteboardOnWater.map((item: any) => (
                     <div key={item.raft_res_name} className="flex flex-row flex-wrap w-full md:w-5/6 items-center justify-between   p-1 " >

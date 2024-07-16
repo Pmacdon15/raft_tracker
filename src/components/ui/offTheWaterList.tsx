@@ -12,7 +12,7 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
     }
 
     return (
-        <div className="flex flex-col items-center align-middle w-full gap-8 text-white">
+        <div className="flex flex-col items-center bg-[#288FF2] align-middle w-full gap-8 shadow-lg rounded text-[#F3F9FE]">
             <h1 className="decoration-solid underline">Off The Water List:</h1>
             {WhiteboardOffWater.length > 0 ? (
                 WhiteboardOffWater.map((item: any) => (
@@ -25,7 +25,7 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
                     </div>
                 ))
             ) : (
-                <p>No have arrived today.</p>
+                <p>No one has arrived today.</p>
             )}
         </div>
     );

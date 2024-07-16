@@ -16,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <div className=" bg-[#288FF2] shadow-lg">
+          <h1 className="flex p-4 items-center justify-center text-4xl text-[#F3F9FE]">Raft Tracker</h1>
+        </div>
+        {children}
+        </body>
     </html>
   );
 }
