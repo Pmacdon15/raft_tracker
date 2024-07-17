@@ -79,10 +79,13 @@ export async function RaftDeparted( prevState: any,formData: FormData) {
 //MARK: Get rafts that departed today
 export async function currentRaftsOnWater() {  
   let result;
+  // Current day - 6 hours
+  const today = new Date();
+  today.setDate(today.getHours() - 6);
   try {
     const raftList = await sql`
       SELECT * FROM RTRaftList 
-      WHERE departure_date >= CURRENT_DATE AND arrival_date IS NULL
+      WHERE departure_date >= ${today.toISOString()} AND arrival_date IS NULL
     `;
     if (!raftList) {
       return []; // Return an empty array if raftList is falsy
@@ -121,10 +124,14 @@ export async function RaftArrived(formData: FormData) {
 export async function currentRaftsOffWater() {
   'use server';
   let result;
+  // Current day - 6 hours
+  const today = new Date();
+  today.setDate(today.getHours() - 6);
+  
   try {
     const raftList = await sql`
       SELECT * FROM RTRaftList 
-      WHERE arrival_date >= CURRENT_DATE
+      WHERE arrival_date >= ${today.toISOString()}
     `;
     if (!raftList) {
       return []; // Return an empty array if raftList is falsy
