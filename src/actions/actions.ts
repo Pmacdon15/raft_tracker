@@ -55,14 +55,24 @@ export async function RaftDeparted( prevState: any,formData: FormData) {
   } else {
     raftType = 'Big Blue';
   }
+  // Check if unit is a word
+  if (unit && isNaN(parseInt(unit.toString()))) {
+    return {message: 'Please enter a valid unit number'};
+  }
   // Make sure the unit is not empty
-  if (!unit) {
+  if (!unit && !bigBlue) {
     return {message: 'Please enter a unit number'};
   }
+  // If Big Blue is selected, set the unit to 0
+  let sentOutUnit = 0;
+  if (unit && !bigBlue) {
+    sentOutUnit = parseInt(unit.toString());
+  }
+
   
   try {
     const addDeparture = await sql`
-      INSERT INTO RTRaftList (raft_res_name, raft_type, departure_date, unit ) VALUES (${reservationName.toString()},${raftType}, CURRENT_TIMESTAMP, ${unit.toString()});
+      INSERT INTO RTRaftList (raft_res_name, raft_type, departure_date, unit ) VALUES (${reservationName.toString()},${raftType}, CURRENT_TIMESTAMP, ${sentOutUnit.toString()});
     `;
     if (!addDeparture) {
       return {message: 'Error adding raft to the list'};

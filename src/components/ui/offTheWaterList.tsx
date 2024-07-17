@@ -17,7 +17,7 @@ export default function OffTheWater({ WhiteboardOffWater }: { WhiteboardOffWater
             {WhiteboardOffWater.length > 0 ? (
                 WhiteboardOffWater.map((item: any) => (
                     <div key={item.raft_res_name} className="flex flex-row  w-full md:w-5/6 items-center justify-between p-1 gap-1">
-                        <p className=" w-full md:w-6/12 text-left">{item.raft_res_name}</p>
+                        <p className="w-full md:w-6/12 text-left">{item.raft_res_name}</p>
                         <p className="w-full md:w-1/12 text-center">{item.raft_type}</p>
                         <p className="w-full md:w-1/12 text-center">{item.unit}</p>
                         <p className="w-full md:w-1/12 text-center">{formatTime(new Date(item.departure_date))}</p>

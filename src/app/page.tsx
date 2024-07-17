@@ -15,7 +15,7 @@ export default async function Home() {
   const TheListOnTheWater = await currentRaftsOnWater() as TripInfo[];
   const TheListOffTheWater = await currentRaftsOffWater() as TripInfo[];
   return (
-    <main className="flex h-svh flex-col items-center bg-[#027BF0] gap-4 text-xl">
+    <main className="flex min-h-svh max-h-fit pb-6 flex-col items-center bg-[#027BF0] gap-4 text-xl">
       <RaftInput />
       <OnTheWaterList WhiteboardOnWater={TheListOnTheWater} />
       <OffTheWater WhiteboardOffWater={TheListOffTheWater} />
