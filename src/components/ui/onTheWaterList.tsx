@@ -14,7 +14,7 @@ function formatTime(time: Date): string {
 
 export default function OnTheWaterList({ WhiteboardOnWater }: { WhiteboardOnWater: any }) {
     return (
-        <div className="flex flex-col items-center bg-[#288FF2] align-middle w-full gap-8 shadow-lg rounded p-1 text-[#F3F9FE]">
+        <div className="flex flex-col min-h-fit items-center bg-[#288FF2] align-middle w-full gap-8 shadow-lg rounded p-1 text-[#F3F9FE]">
             <h1 className="decoration-solid underline">
                 On The Water List:
             </h1>
